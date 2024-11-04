@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Container for the profile card */
+.profile-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background: linear-gradient(135deg, #f0f9ff, #cfe7fa, #a5d4f0);
+}
+
+/* Profile image styling */
+.profile-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #4CAF50;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+.profile-container h2 {
+  margin: 10px 0;
+  font-size: 26px;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  color: #4CAF50;
+}
+
+/* Description styling */
+.profile-container p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  font-family: 'Georgia', serif;
+  margin: 8px 0;
+}
+
+.profile-image-container {
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+.left-fill {
+  width: 20px;
+  height: 200px;
+  background-color: #f7f7f7;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right-fill {
+  width: 20px;
+  height: 200px;
+  background-color: #f7f7f7;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+</style>
+</head>
+<body>
+<div class="profile-container">
+  <div class="left-fill"></div>
+  <div class="right-fill"></div>
+  <div class="profile-image-container">
+    <img src="{{ url_for('static', filename='Screenshot 2024-11-03 222719.png') }}" alt="Advika Yadav">
+  </div>
+  <!-- Title and description -->
+  <h2>Advika Yadav</h2>
+  <p>Advika Yadav is a joyful and inquisitive 10-month-old baby. Her eyes light up with curiosity as she explores her surroundings.</p>
+  <p>She loves playing with her colorful toys, and her laughter is contagious. Advika is also starting to say her first words, which brings so much joy to her family.</p>
+  <p>She enjoys listening to music and often dances along to the beat with a big smile. Her favorite pastime is crawling around and discovering new things, always bringing happiness to everyone around her.</p>
+</div>
+</body>
+</html>
+
+

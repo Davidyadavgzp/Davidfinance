@@ -1,8 +1,10 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def hello_world():
-  return "Your most Welcome (Your David), yaha se naye ki suruwat ho raha hain hai"
-if __name__ == "__main__":               app.run(host='0.0.0.0', debug=True)
+    return render_template("index.html")
+
+if __name__ == "__main__": 
+    app.run(host='0.0.0.0', debug=True)
