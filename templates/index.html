@@ -2,143 +2,166 @@
 <html>
 <head>
 <style>
-/* Container for the profile card */
 .profile-container {
-  width: 80%; 
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  background: linear-gradient(135deg, #f0f9ff, #cfe7fa, #a5d4f0);
+width: 80%;
+margin: auto;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 10px;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+text-align: justify;
+background: linear-gradient(135deg, #f0f9ff, #cfe7fa, #a5d4f0);
 }
 
-/* Profile image styling */
 .profile-container img {
-  width: 200px; 
-  height: 200px; 
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border: 3px solid #4CAF50;
-  background-color: white;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+width: 250px;
+height: 250px;
+border-radius: 50%;
+object-fit: cover;
+float: left;
+margin: 10px 0 0 10px;
+border: 3px solid #4CAF50;
+background-color: white;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Title styling */
 .profile-container h2 {
-  margin: 10px 0;
-  font-size: 26px;
-  color: #333;
-  font-family: 'Arial', sans-serif;
-  font-weight: bold;
-  color: #4CAF50;
+margin: 10px 0;
+font-size: 26px;
+color: #333;
+font-family: 'Arial', sans-serif;
+font-weight: bold;
+color: #4CAF50;
+text-align: center;
 }
 
-/* Description styling */
 .profile-container p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.6;
-  font-family: 'Georgia', serif;
-  margin: 8px 0;
-  text-align: justify; 
+font-size: 16px;
+color: #555;
+line-height: 1.6;
+font-family: 'Georgia', serif;
+margin: 8px 0;
 }
 
-/* Navigation bar styling */
 .navbar {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
+background-color: #333;
+padding: 10px;
+text-align: center;
 }
 
 .navbar a {
-  color: #fff;
-  text-decoration: none;
-  margin: 10px;
+color: #fff;
+text-decoration: none;
+margin: 10px;
 }
 
-/* Logo styling */
 .logo {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #fff;
-  padding: 5px;
+position: absolute;
+top: 10px;
+right: 10px;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+background-color: #fff;
+padding: 5px;
 }
 
-/* Footer styling */
+.contact-form {
+margin-top: 20px;
+width: 40%;
+margin: auto;
+padding: 20px;
+border: 0.5px solid #ccc;
+border-radius: 10px;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+height: 250px;
+border-bottom: none;
+}
+
+.contact-form h3 {
+margin-bottom: 10px;
+font-size: 24px;
+font-weight: bold;
+text-align: center;
+color: #333;
+}
+
+.contact-form input, .contact-form textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 0.5px solid #ccc;
+border-radius: 5px;
+}
+
+.contact-form label {
+font-size: 18px;
+margin-bottom: 5px;
+color: #666;
+}
+
+.contact-form button {
+background-color: #4CAF50;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+width: 100%;
+height: 40px;
+font-size: 18px;
+}
+
 .footer {
-  background-color: #333;
-  padding: 10px;
-  text-align: center;
-  color: #fff;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Mobile-friendly design */
-@media only screen and (max-width: 768px) {
-  .profile-container {
-    width: 90%; 
-    padding: 10px;
-  }
-  .profile-container img {
-    width: 150px;
-    height: 150px;
-  }
+background-color: #333;
+padding: 10px;
+text-align: center;
+color: #fff;
+position: fixed;
+bottom: 0;
+width: 100%;
 }
 </style>
 </head>
 <body>
-<!-- Navigation bar -->
 <div class="navbar">
-  <a href="#">Home</a>
-  <a href="#">About</a>
-  <a href="#">Login</a>
+<a href="#">Home</a>
+<a href="#">Login</a>
+<a href="#">About</a>
 </div>
 
-<!-- Logo -->
 <div class="logo">
-  <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+<img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
 </div>
 
-<!-- Profile container -->
 <div class="profile-container">
-  <img src="{{ url_for('static', filename='Screenshot 2024-11-03 222719.png') }}" alt="Advika Yadav">
-  <!-- Title and description -->
-  <h2>Advika Yadav</h2>
-  <p>Advika Yadav is a joyful and inquisitive 10-month-old baby. Her eyes light up with curiosity as she explores her surroundings.</p>
-  <p>She loves playing with her colorful toys, and her laughter is contagious. Advika is also starting to say her first words, which brings so much joy to her family.</p>
-  <p>She enjoys listening to music and often dances along to the beat with a big smile. Her favorite pastime is crawling around and discovering new things, always bringing happiness to everyone around her.</p>
-
-  <!-- Social media links -->
-  <div class="social-media">
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-twitter"></a>
-    <a href="#" class="fa fa-instagram"></a>
-  </div>
-
-  <!-- Contact form -->
-  <div class="contact-form">
-    <form>
-      <input type="text" name="name" placeholder="Name">
-      <input type="email" name="email" placeholder="Email">
-      <textarea name="message" placeholder="Message"></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
+<img src="{{ url_for('static', filename='Screenshot 2024-11-03 222719.png') }}" alt="Advika Yadav">
+<h2>Advika Yadav</h2>
+<p>Advika Yadav is a joyful and inquisitive 10-month-old baby. Her eyes light up with curiosity as she explores her surroundings.</p>
+<p>She loves playing with her colorful toys, and her laughter is contagious. Advika is also starting to say her first words, which brings so much joy to her family.</p>
+<p>She enjoys listening to music and often dances along to the beat with a big smile. Her favorite pastime is crawling around and discovering new things, always bringing happiness to everyone around her.</p>
 </div>
 
-<!-- Footer -->
-<div class="footer">
-  &copy; 2024 Advika Yadav. All rights reserved.
-  <br>
-  Designed by [Your Name]
-  <br>
-  Contact: [Your Email/
+<div class="contact-form">
+<h3>Fill the Form to Contact Us</h3>
+<form>
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" placeholder="Enter your name">
+
+<label for="mobile">Mobile Number:</label>
+<input type="number" id="mobile" name="mobile" placeholder="Enter your mobile number">
+
+<label for="address">Address:</label>
+<textarea id="address" name="address" placeholder="Enter your address"></textarea>
+
+<button type="submit">Submit</button>
+</form>
+</div>
+
+  <div class="footer" style="height: 50px; line-height: 20px; padding: 10px;">
+  <p>&copy; 2024 Advika Yadav. All rights reserved.</p>
+  <a href="#">Terms and Conditions</a> |
+  <a href="#">Privacy Policy</a> |
+  <a href="#">FAQ</a>
+  </div>
+
