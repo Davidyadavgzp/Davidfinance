@@ -25,7 +25,7 @@
             color: white; /* White text color for header */
             padding: 10px 0;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Align buttons to the left */
             align-items: center;
             font-size: 18px;
             width: 100%;
@@ -48,6 +48,13 @@
 
         .navbar button:hover {
             background-color: #ddd;
+        }
+
+        /* Call icon and phone number */
+        .call-icon {
+            font-size: 16px;
+            margin-left: 10px; /* Adjusted margin to shift the number slightly left */
+            color: #fff;
         }
 
         /* Body styling */
@@ -165,6 +172,8 @@
                 <button>Contact</button>
             </a>
         </div>
+        <!-- Call icon with phone number -->
+        <span class="call-icon">📞 8543886042</span>
     </header>
 
     <!-- Profile Image -->
@@ -173,7 +182,7 @@
     </div>
 
     <!-- Centered Welcome Message -->
-    <h1>Welcome to my website</h1>
+    <h1>Welcome to my home</h1>
 
     <!-- Footer -->
     <div class="footer">
@@ -182,5 +191,6 @@
         <a href="#">Privacy Policy</a> |
         <a href="#">FAQ</a>
     </div>
+
 </body>
 </html>
