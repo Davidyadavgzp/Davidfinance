@@ -2,3 +2,4 @@ flask
 gunicorn
 google-auth
 gspread
+mysql-connector-python

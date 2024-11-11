@@ -1,8 +1,6 @@
 [project]
-name = "repl-nix-davidfinance-2"
+name = "repl-nix-davidfinance"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.8"
-dependencies = [
-    "flask>=3.0.3",
-]
+dependencies = []

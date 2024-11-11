@@ -1,48 +1,60 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
-import mysql.connector
+from flask import Flask, render_template, request, redirect, url_for
+import sqlite3
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # for flashing messages
 
-# MySQL Database Connection Configuration
-db = mysql.connector.connect(
-    host="localhost",      # Update with your MySQL host
-    user="root",           # Update with your MySQL username
-    password="password",   # Update with your MySQL password
-    database="contactdb"   # Database created in Step 2
-)
+# Database connection function
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
-# Define routes for the application
+# Create the table in the database
+def create_tables():
+    conn = get_db_connection()
+    conn.execute('''CREATE TABLE IF NOT EXISTS contact_entries (
+                        id INTEGER PRIMARY KEY,
+                        name TEXT NOT NULL,
+                        email TEXT NOT NULL,
+                        phone TEXT NOT NULL,
+                        subject TEXT NOT NULL,
+                        message TEXT NOT NULL
+                    )''')
+    conn.commit()
+    conn.close()
+
+# Home page route
 @app.route('/')
 @app.route('/home')
 def index():
     return render_template('index.html')
 
+# About page route
 @app.route('/about')
 def about():
     return render_template('about.html')
 
+# Contact page route with form handling
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
     if request.method == 'POST':
-        # Get form data
         name = request.form['name']
         email = request.form['email']
         phone = request.form['phone']
         subject = request.form['subject']
         message = request.form['message']
-        
-        # Insert data into MySQL database
-        cursor = db.cursor()
-        query = "INSERT INTO contacts (name, email, phone, subject, message) VALUES (%s, %s, %s, %s, %s)"
-        cursor.execute(query, (name, email, phone, subject, message))
-        db.commit()
-        cursor.close()
-        
-        flash("Thank you for reaching out! We'll get back to you soon.")
-        return redirect(url_for('contact'))
-    
+
+        # Insert data into the database
+        conn = get_db_connection()
+        conn.execute('INSERT INTO contact_entries (name, email, phone, subject, message) VALUES (?, ?, ?, ?, ?)',
+                     (name, email, phone, subject, message))
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for('contact'))  # Redirect to avoid form resubmission
+
     return render_template('contact.html')
 
 if __name__ == '__main__':
+    create_tables()  # Ensure the table is created before running the app
     app.run(debug=True)
